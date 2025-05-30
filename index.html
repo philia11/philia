@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>philia</title>
+
+  <style>
+    html {
+      box-sizing: border-box;
+      font-size: 1rem;
+      background: #1f2937;
+      font-family: sans-serif;
+    }
+
+    *, *:before, *:after {
+      box-sizing: inherit;
+    }
+
+    body, h1, h2, h3, h4, h5, h6, p, ol, ul {
+      margin: 0;
+      padding: 0;
+      font-weight: normal;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #card-container {
+      padding: 16px;
+      width: 500px;
+      height: 200px;
+      background: white;
+      border-radius: 4px;
+      backdrop-filter: blur(100px);
+    }
+  </style>
+</head>
+
+<body>
+  <div id="card-container">
+    teste
+  </div>
+</body>
+
+<script>
+  const card = document.getElementById('card-container');
+  const cardRect = card.getBoundingClientRect();
+
+  const cardCenterY = cardRect.y + (cardRect.height / 2);
+  const cardCenterX = cardRect.x + (cardRect.width / 2);
+  const constrain = 20;
+
+  document.addEventListener('mousemove', function(e) {
+    const mouseY = e.clientY;
+    const mouseX = e.clientX;    
+    
+    const rotationX = -(mouseY - cardCenterY) / (constrain * 0.75);
+    const rotationY = (mouseX - cardCenterX) / (constrain * 2);
+
+    card.style.transform = `perspective(800px) rotateX(${rotationX}deg) rotateY(${rotationY}deg)`;
+  });
+</script>
+</html>
