@@ -3,14 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+
   <title>philia</title>
 
   <style>
+    ::selection {
+      background: #404040;
+      color: white;
+    }
+
     html {
       box-sizing: border-box;
       font-size: 1rem;
-      background: #1f2937;
-      font-family: sans-serif;
+      font-family: 'Source Code Pro', monospace;
+      color: #404040;
     }
 
     *, *:before, *:after {
@@ -23,27 +32,105 @@
       font-weight: normal;
     }
 
+    ul, li {
+      list-style: none;
+    }
+
+    li {
+      position: relative;
+      padding-left: 1em;
+    }
+
+    li::before {
+      content: '›';
+      position: absolute;
+      left: 0;
+    }
+
     body {
       height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
+      background: radial-gradient(#e4e4e4 5%, white 50%);
+    }
+
+    a {
+      color: inherit;
+      background: #efefef;
+      transition: filter .1s ease-in-out;
+    }
+
+    a:hover {
+      filter: invert(1);
     }
 
     #card-container {
       padding: 16px;
       width: 500px;
-      height: 200px;
+      height: 275px;
       background: white;
-      border-radius: 4px;
+      border-radius: 2.5px;
       backdrop-filter: blur(100px);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 0 10px -7.5px rgba(0, 0, 0, 0.125);
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    /* main {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+    } */
+
+    h1 {
+      width: fit-content;
+      background: #404040;
+      color: white;
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
     }
   </style>
 </head>
 
 <body>
   <div id="card-container">
-    teste
+    <header>
+      <h1>φhilia</h1>
+      <p>24yo</p>
+      <p>brazilian</p>
+      <p>software engineer</p>
+    </header>
+    
+    <main>
+      <div>
+        <p>tech stack:</p>
+        <ul>
+          <li>typescript</li>
+          <li>react</li>
+          <li>tailwind</li>
+          <li>next.js</li>
+        </ul>
+      </div>
+    </main>
+
+    <footer>
+      <a href="mailto:hello@philia.dev.br">hello@philia.dev.br</a>
+
+      <div>
+        <a href="https://github.com/nakahwra">github</a>
+        <a href="https://bsky.app/profile/philia.dev.br">bsky</a>
+      </div>
+    </footer>
   </div>
 </body>
 
@@ -53,7 +140,7 @@
 
   const cardCenterY = cardRect.y + (cardRect.height / 2);
   const cardCenterX = cardRect.x + (cardRect.width / 2);
-  const constrain = 20;
+  const constrain = 60;
 
   document.addEventListener('mousemove', function(e) {
     const mouseY = e.clientY;
