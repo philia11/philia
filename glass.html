@@ -31,7 +31,6 @@
       padding: 0;
       font-weight: normal;
     }
-
     ul, li {
       list-style: none;
     }
@@ -52,12 +51,15 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      background: radial-gradient(#e4e4e4 5%, white 50%);
+      background: 
+        radial-gradient(circle at 50% 40%, #ffa6a6 0%, transparent 30%),
+        radial-gradient(circle at 40% 60%, #a8ffa8 0%, transparent 30%),
+        radial-gradient(circle at 60% 60%, #a6c5ff 0%, transparent 30%)
     }
 
     a {
       color: inherit;
-      background: #efefef;
+      background: white;
       transition: filter .1s ease-in-out;
     }
 
@@ -69,13 +71,16 @@
       padding: 16px;
       width: 500px;
       height: 275px;
-      background: white;
       border-radius: 2.5px;
-      backdrop-filter: blur(100px);
+      backdrop-filter: blur(10px);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      box-shadow: 0 0 10px -7.5px rgba(0, 0, 0, 0.125);
+      /* box-shadow: 0 0 10px -7.5px rgba(0, 0, 0, 0.125); */
+
+      background: #ffffff11;
+      box-shadow: inset 0 0 60px 1px #ffffff88;
+      border: 1px solid #ffffff88;
     }
 
     header {
@@ -86,7 +91,7 @@
     main {
       display: grid;
       grid-template-columns: 2fr 1fr;
-      gap: 0.5rem;
+      gap: 1rem;
     }
 
     h1 {
@@ -100,21 +105,11 @@
       justify-content: space-between;
       align-items: end;
     }
-
-    #glass-cta {
-      position: absolute;
-      top: -30px;
-      left:0;
-      text-decoration: none;
-      background: none;
-    }
   </style>
 </head>
 
 <body>
   <div id="card-container">
-    <a id="glass-cta" href="glass.html"><i>✨glassify✨</i> ↝</a>
-
     <header>
       <h1>φhilia</h1>
       <nav>
