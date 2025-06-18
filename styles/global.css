@@ -86,3 +86,28 @@ footer {
   justify-content: space-between;
   align-items: end;
 }
+
+.cursor-tooltip {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #404040;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 2.5px;
+  font-size: 0.85rem;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.cursor-tooltip.show {
+  opacity: 1;
+}
+
+.wip-link {
+  cursor: wait;
+}
