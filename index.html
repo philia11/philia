@@ -6,105 +6,34 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles/global.css">
 
   <title>philia</title>
 
   <style>
-    ::selection {
-      background: #404040;
-      color: white;
-    }
-
-    html {
-      box-sizing: border-box;
-      font-size: 1rem;
-      font-family: 'Source Code Pro', monospace;
-      color: #404040;
-    }
-
-    *, *:before, *:after {
-      box-sizing: inherit;
-    }
-
-    body, h1, h2, h3, h4, h5, h6, p, ol, ul {
-      margin: 0;
-      padding: 0;
-      font-weight: normal;
-    }
-
-    ul, li {
-      list-style: none;
-    }
-
-    li {
-      position: relative;
-      padding-left: 1em;
-    }
-
-    li::before {
-      content: '›';
-      position: absolute;
-      left: 0;
-    }
-
     body {
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
       background: radial-gradient(#e4e4e4 5%, white 50%);
     }
 
     a {
-      color: inherit;
       background: #efefef;
-      transition: filter .1s ease-in-out;
-    }
-
-    a:hover {
-      filter: invert(1);
     }
 
     #card-container {
-      padding: 16px;
-      width: 500px;
-      height: 275px;
       background: white;
-      border-radius: 2.5px;
       backdrop-filter: blur(100px);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
       box-shadow: 0 0 10px -7.5px rgba(0, 0, 0, 0.125);
     }
 
-    header {
-      display: flex;
-      justify-content: space-between;
-    }
-
     main {
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 0.5rem;
-    }
-
-    h1 {
-      width: fit-content;
-      background: #404040;
-      color: white;
-    }
-
-    footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: end;
+      gap: 1rem;
     }
 
     #glass-cta {
       position: absolute;
       top: -30px;
-      left:0;
+      left: 0;
       text-decoration: none;
       background: none;
     }
@@ -112,7 +41,7 @@
 </head>
 
 <body>
-  <div id="card-container">
+  <div id="card-container" data-tilt>
     <a id="glass-cta" href="glass.html"><i>✨glassify✨</i> ↝</a>
 
     <header>
@@ -148,24 +77,7 @@
       </div>
     </footer>
   </div>
+  
+  <script src="scripts/tilt.js"></script>
 </body>
-
-<script>
-  const card = document.getElementById('card-container');
-  const cardRect = card.getBoundingClientRect();
-
-  const cardCenterY = cardRect.y + (cardRect.height / 2);
-  const cardCenterX = cardRect.x + (cardRect.width / 2);
-  const constrain = 60;
-
-  document.addEventListener('mousemove', function(e) {
-    const mouseY = e.clientY;
-    const mouseX = e.clientX;    
-    
-    const rotationX = -(mouseY - cardCenterY) / (constrain * 0.75);
-    const rotationY = (mouseX - cardCenterX) / (constrain * 2);
-
-    card.style.transform = `perspective(800px) rotateX(${rotationX}deg) rotateY(${rotationY}deg)`;
-  });
-</script>
 </html>

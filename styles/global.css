@@ -1,0 +1,88 @@
+/* Global Styles - Common across all pages */
+
+::selection {
+  background: #404040;
+  color: white;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 1rem;
+  font-family: 'Source Code Pro', monospace;
+  color: #404040;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body, h1, h2, h3, h4, h5, h6, p, ol, ul {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+
+ul, li {
+  list-style: none;
+}
+
+li {
+  position: relative;
+  padding-left: 1em;
+}
+
+li::before {
+  content: '›';
+  position: absolute;
+  left: 0;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+a {
+  color: inherit;
+  transition: filter .1s ease-in-out;
+}
+
+a:hover {
+  filter: invert(1);
+}
+
+/* Card Layout - Common structure */
+#card-container {
+  padding: 16px;
+  width: 500px;
+  height: 275px;
+  border-radius: 2.5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 0.5rem;
+}
+
+h1 {
+  width: fit-content;
+  background: #404040;
+  color: white;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+}
